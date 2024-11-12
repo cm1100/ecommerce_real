@@ -43,6 +43,23 @@ class authControllers{
 
     }
 
+    getUser = async(req,res)=>{
+        const {id,rule} = req;
+
+        try{
+            if(role=='admin'){
+                const user = await AdminModel.findById(id)
+                responseReturn(res,200,{userInfo:user})
+
+            }else{
+                console.log('selller info')
+            }
+        }catch(error){
+            console.log(error.message)
+        }
+
+    }// end getUser method
+
 }
 
 
